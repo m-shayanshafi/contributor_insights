@@ -16,3 +16,8 @@ __pycache__/
 .vscode/
 .idea/
 .DS_Store
+
+# Local planning docs (not part of the submission)
+design.md
+developer_actions.md
+implementation_plan.md
