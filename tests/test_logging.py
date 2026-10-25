@@ -27,9 +27,11 @@ def capture():
         ("headers={'Authorization': 'Bearer abc123token'}", "abc123token"),
         ("Authorization: token987", "token987"),
         ('{"x-api-key": "key-xyz-789"}', "key-xyz-789"),
+        ('{"x-goog-api-key": "goog-key-456"}', "goog-key-456"),
+        ("GET /v1beta/models?key=query-key-123&alt=json", "query-key-123"),
         ("using github_pat_11ABCDEFG_hijklmnop", "github_pat_11ABCDEFG_hijklmnop"),
         ("legacy ghp_abcdefghijklmnopqrstuvwxyz123456", "ghp_abcdefghijklmnopqrstuvwxyz123456"),
-        ("key sk-ant-api03-SECRETSECRET", "sk-ant-api03-SECRETSECRET"),
+        ("key AIzaSyA1b2C3d4E5f6G7h8I9j0KlMnOpQrStUvW", "AIzaSyA1b2C3d4E5f6G7h8I9j0KlMnOpQrStUvW"),
     ],
 )
 def test_credentials_are_redacted(capture, message, leaked):

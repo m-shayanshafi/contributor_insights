@@ -7,6 +7,8 @@ from pathlib import Path
 from pydantic import SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from app.analytics.periods import REQUIRED_HISTORY_DAYS
+
 REPO_PATTERN = re.compile(r"^[A-Za-z0-9-]{1,39}/[A-Za-z0-9._-]{1,100}$")
 
 
@@ -29,9 +31,9 @@ class Settings(BaseSettings):
 
     # SecretStr keeps values out of repr(), str() and serialized output.
     github_token: SecretStr | None = None
-    anthropic_api_key: SecretStr | None = None
+    gemini_api_key: SecretStr | None = None
 
-    claude_model: str = "claude-opus-5-5"
+    gemini_model: str = "gemini-3.5-flash-lite"
     db_path: Path = Path("data/insights.db")
     sync_ttl_seconds: int = 3600
     history_days: int = 180
@@ -40,7 +42,7 @@ class Settings(BaseSettings):
     max_peers: int = 5
     rate_limit: str = "30/minute"
 
-    @field_validator("github_token", "anthropic_api_key", mode="before")
+    @field_validator("github_token", "gemini_api_key", mode="before")
     @classmethod
     def _blank_is_missing(cls, value: object) -> object:
         if isinstance(value, str) and not value.strip():
@@ -54,16 +56,23 @@ class Settings(BaseSettings):
             raise ValueError("TARGET_REPO must look like 'owner/name'")
         return value
 
+    @field_validator("history_days")
+    @classmethod
+    def _enough_history(cls, value: int) -> int:
+        if value < REQUIRED_HISTORY_DAYS:
+            raise ValueError(f"HISTORY_DAYS must be at least {REQUIRED_HISTORY_DAYS}")
+        return value
+
     @model_validator(mode="after")
     def _required_secrets(self) -> "Settings":
         # Fail fast at startup instead of on the first request.
         if self.data_source is DataSource.GITHUB and self.github_token is None:
             raise ValueError("GITHUB_TOKEN is required when DATA_SOURCE=github")
-        if self.llm_mode is LLMMode.LIVE and self.anthropic_api_key is None:
-            raise ValueError("ANTHROPIC_API_KEY is required when LLM_MODE=live")
+        if self.llm_mode is LLMMode.LIVE and self.gemini_api_key is None:
+            raise ValueError("GEMINI_API_KEY is required when LLM_MODE=live")
         return self
 
     def secret_values(self) -> list[str]:
         """Raw secret values, used only by the log redaction filter."""
-        secrets = (self.github_token, self.anthropic_api_key)
+        secrets = (self.github_token, self.gemini_api_key)
         return [s.get_secret_value() for s in secrets if s is not None]

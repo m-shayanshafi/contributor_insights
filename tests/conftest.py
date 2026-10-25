@@ -3,7 +3,7 @@ import pytest
 from app.config import Settings
 
 _ENV_VARS = (
-    "DATA_SOURCE", "LLM_MODE", "GITHUB_TOKEN", "ANTHROPIC_API_KEY", "TARGET_REPO", "DB_PATH",
+    "DATA_SOURCE", "LLM_MODE", "GITHUB_TOKEN", "GEMINI_API_KEY", "TARGET_REPO", "DB_PATH",
 )
 
 

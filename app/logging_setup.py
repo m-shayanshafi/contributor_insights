@@ -8,11 +8,13 @@ REDACTED = "[REDACTED]"
 _PATTERNS = [
     # Authorization headers, with or without a "Bearer" prefix.
     re.compile(r"(?i)(authorization[\"']?\s*[:=]\s*[\"']?)(?:bearer\s+)?[^\s\"',}]+"),
-    re.compile(r"(?i)(x-api-key[\"']?\s*[:=]\s*[\"']?)[^\s\"',}]+"),
+    # Gemini sends its key as x-goog-api-key (or a ?key= query parameter).
+    re.compile(r"(?i)(x-(?:goog-)?api-key[\"']?\s*[:=]\s*[\"']?)[^\s\"',}]+"),
+    re.compile(r"([?&]key=)[^&\s\"']+"),
     # Token formats, in case one shows up outside a header.
     re.compile(r"()github_pat_[A-Za-z0-9_]+"),
     re.compile(r"()gh[pousr]_[A-Za-z0-9]{20,}"),
-    re.compile(r"()sk-ant-[A-Za-z0-9_-]+"),
+    re.compile(r"()AIza[0-9A-Za-z_-]{35}"),
 ]
 
 
