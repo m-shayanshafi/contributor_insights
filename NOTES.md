@@ -85,8 +85,6 @@ in the body.
   limiter live in memory, so running several instances would need Redis or Postgres.
 - **Python and Gemini.** Python is the stack I'm fastest in. Gemini's free tier keeps the
   project free to run and lets reviewers use their own free key.
-- **Not built:** a frontend, a second integration, a periodic background worker and an eval
-  harness. I prioritised correctness, security and a reliable demo over breadth.
 
 ## 3. What I'd do next with another day
 
@@ -98,11 +96,7 @@ in the body.
 3. **Periodic background refresh** for known contributors, so requests never wait on a sync.
 4. **Small React frontend** with a contributor picker, the trend series and the narrative.
 5. **Arbitrary date ranges**, with a coverage check against stored history.
-6. **Second integration.** The fixture source already shows the seam: anything that
-   implements the same user lookup and PR/review queries can feed the store.
 
-Known issue: one recorded contributor, `balloobbot`, is an automation account that GitHub
-reports as a normal user, so it got past the bot filter.
 
 ## 4. How I used AI
 
@@ -112,8 +106,7 @@ tests, and reviewed every step before it was committed. Each commit in the histo
 approved step, so the history shows how the project came together.
 
 I made the product and design decisions and pushed back where the output wasn't what I
-wanted. The first design used Reddit, which I dropped when it turned out new API access needs
-approval. I chose GitHub and a single high-activity repo, cut the periods to 1w/1m/3m for the
+wanted. I chose GitHub and a single high-activity repo, cut the periods to 1w/1m/3m for the
 demo, removed a peer-comparison feature I decided didn't belong, raised the sync TTL from 15
 minutes to an hour, switched the LLM to Gemini's free tier, and asked for medians to be whole
 numbers and for README changes.
