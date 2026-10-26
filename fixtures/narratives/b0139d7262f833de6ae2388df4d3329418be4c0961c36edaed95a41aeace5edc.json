@@ -1,0 +1,23 @@
+{
+  "narrative": "Contributor tr4nt0r merged more pull requests while shifting a significant portion of effort toward code reviews. Although merged PR volume rose, cycle times increased alongside a surge in review activity. The data suggests that time was diverted from writing personal code to reviewing others' contributions.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "fewer PRs while reviews rise: time moved to reviewing",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Merged PR volume increased by 18.7 percent",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "18.7"
+    },
+    {
+      "claim": "Reviews given surged by 600.0 percent",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "600.0"
+    },
+    {
+      "claim": "Median cycle time increased to 8.9 hours",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "8.9"
+    }
+  ]
+}

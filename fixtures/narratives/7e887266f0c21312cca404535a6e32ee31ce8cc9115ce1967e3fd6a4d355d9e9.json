@@ -1,0 +1,23 @@
+{
+  "narrative": "Frenck significantly increased output this period, merging 669 pull requests compared to 377 previously. Median cycle time decreased to 1.5 hours while reviews given rose to 967. The high activity was concentrated in specific burst weeks such as October 6th.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "Activity was concentrated in burst weeks, significantly driving up pull request volume and review counts.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "PRs merged increased substantially.",
+      "ref": "metrics.prs_merged.value",
+      "value": "669"
+    },
+    {
+      "claim": "Median cycle time decreased.",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "1.5"
+    },
+    {
+      "claim": "Reviews given increased.",
+      "ref": "metrics.reviews_given.value",
+      "value": "967"
+    }
+  ]
+}

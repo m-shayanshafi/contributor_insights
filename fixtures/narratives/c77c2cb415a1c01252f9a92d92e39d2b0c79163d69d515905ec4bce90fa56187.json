@@ -1,0 +1,28 @@
+{
+  "narrative": "During this period, farmio merged the same number of PRs while significantly increasing the total lines changed and median PR size. At the same time, median cycle time dropped by nearly half, indicating faster delivery despite larger contributions. The work shifted toward larger items, evidenced by substantial PRs like number 185902.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "The shift toward larger PR sizes indicates that work focused on bigger items rather than dropping output.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PR count remained unchanged.",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "0.0"
+    },
+    {
+      "claim": "Median PR size increased substantially.",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "92.3"
+    },
+    {
+      "claim": "Median cycle time decreased significantly.",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-49.2"
+    },
+    {
+      "claim": "Large PR example in top PRs list.",
+      "ref": "pr:#185902",
+      "value": "360"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "narrative": "Mosandlt significantly increased their output in the current period, doubling the number of merged PRs and more than doubling total lines changed while maintaining a steady median PR size. Active weeks and cycle times improved slightly, showing consistent high-volume contributions across the window.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": null,
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs doubled compared to the previous period.",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "100.0"
+    },
+    {
+      "claim": "Lines changed increased substantially alongside PR volume.",
+      "ref": "metrics.lines_changed.pct_change",
+      "value": "115.5"
+    },
+    {
+      "claim": "Active weeks increased across the period.",
+      "ref": "metrics.active_weeks.value",
+      "value": "5"
+    }
+  ]
+}

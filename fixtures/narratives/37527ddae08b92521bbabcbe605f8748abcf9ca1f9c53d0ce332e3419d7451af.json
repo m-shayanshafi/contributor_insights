@@ -1,0 +1,28 @@
+{
+  "narrative": "The contributor's velocity shifted this period as reviews given rose significantly by 147.1% alongside a steep increase in median cycle time to 11.2 hours. Meanwhile, the number of merged pull requests remained steady at 7, though their median size decreased by 78.4%. This points to a shift in focus toward code reviews and smaller changes.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "Fewer PRs while reviews rise: time moved to reviewing",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Reviews given increased substantially",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "147.1"
+    },
+    {
+      "claim": "Median cycle time lengthened",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "11.2"
+    },
+    {
+      "claim": "Merged PR count remained unchanged",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "0.0"
+    },
+    {
+      "claim": "Median PR size decreased",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "-78.4"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, jbouwh significantly increased their output with merged PRs surging by 416.7% alongside a dramatic rise in reviews given. Despite the higher volume of contributions, median cycle time dropped sharply by 84.3%, indicating much faster delivery. The data reflects a major expansion in activity across more active weeks.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": null,
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased substantially compared to the previous period.",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "416.7"
+    },
+    {
+      "claim": "Median cycle time decreased significantly.",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-84.3"
+    },
+    {
+      "claim": "Reviews given also saw a large increase.",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "381.0"
+    }
+  ]
+}

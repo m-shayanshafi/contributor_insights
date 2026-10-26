@@ -1,0 +1,23 @@
+{
+  "narrative": "Darkrain-nl shifted toward significantly fewer but much larger pull requests this period, with merged PRs dropping by 82.4 percent while median PR size surged by 1002.6 percent. Concurrently, time spent on reviews increased as they provided 5 reviews compared to none in the previous period. This change in focus explains the drop in raw throughput without a major reduction in overall code volume.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "The shift toward much larger PRs and time spent on code reviews naturally reduced the volume of merged PRs and increased cycle times.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs decreased by 82.4 percent",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-82.4"
+    },
+    {
+      "claim": "Median PR size increased by 1002.6 percent",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "1002.6"
+    },
+    {
+      "claim": "Reviews given rose from 0 to 5",
+      "ref": "metrics.reviews_given.value",
+      "value": "5"
+    }
+  ]
+}

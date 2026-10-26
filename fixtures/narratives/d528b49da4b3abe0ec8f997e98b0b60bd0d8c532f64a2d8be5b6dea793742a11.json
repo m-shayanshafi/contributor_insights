@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, gjohansson-ST maintained a stable volume of merged pull requests while dramatically increasing review output by 400.0 percent. Meanwhile, their median cycle time dropped significantly to 0.5 hours despite handling large changes in top pull requests. The data suggests a shift in focus toward code reviews and rapid merging of smaller items.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "Fewer PRs while reviews rise: time moved to reviewing",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Reviews given increased substantially compared to the previous period",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "400.0"
+    },
+    {
+      "claim": "Merged pull requests remained constant",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "0.0"
+    },
+    {
+      "claim": "Median cycle time decreased significantly",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-70.6"
+    }
+  ]
+}

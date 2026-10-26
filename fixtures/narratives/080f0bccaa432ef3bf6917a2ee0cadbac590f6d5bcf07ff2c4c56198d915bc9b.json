@@ -1,0 +1,23 @@
+{
+  "narrative": "Contributor Shulyaka increased output significantly this period, merging 8 pull requests compared to 5 previously, representing a 60.0 percent increase. Median cycle time also improved, dropping by 40.2 percent to 6.1 hours despite handling larger overall code changes. Consequently, the contributor is operating faster while maintaining consistent engagement across active weeks.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": null,
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged pull requests increased by 60.0 percent",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "60.0"
+    },
+    {
+      "claim": "Median cycle time decreased by 40.2 percent",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-40.2"
+    },
+    {
+      "claim": "Total lines changed increased to 4356",
+      "ref": "metrics.lines_changed.value",
+      "value": "4356"
+    }
+  ]
+}

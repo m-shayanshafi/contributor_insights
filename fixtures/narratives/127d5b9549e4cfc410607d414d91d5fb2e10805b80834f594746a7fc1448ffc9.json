@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, abmantis merged fewer pull requests while shifting focus toward slightly larger items, as indicated by a higher median PR size and several substantial top PRs. Although active weeks remained relatively stable, overall output volume dropped alongside a decrease in reviews given and a modest increase in median cycle time. The data reflects a shift toward fewer, more complex tasks rather than a general drop in engagement.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "The work shifted to bigger items rather than output dropping",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs decreased by 37.3 percent",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-37.3"
+    },
+    {
+      "claim": "Median PR size increased by 70.6 percent",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "70.6"
+    },
+    {
+      "claim": "Reviews given decreased by 42.6 percent",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "-42.6"
+    }
+  ]
+}

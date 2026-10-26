@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, emontnemery significantly increased their output with merged PRs rising by 110.5% to 480 and lines changed increasing by 40.0%. However, median cycle time lengthened by 105.3% to 7.8 hours, indicating slightly slower progression from creation to merge despite the surge in velocity.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": null,
+  "confidence": 0.8,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased substantially",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "110.5"
+    },
+    {
+      "claim": "Lines changed increased significantly",
+      "ref": "metrics.lines_changed.pct_change",
+      "value": "40.0"
+    },
+    {
+      "claim": "Median cycle time increased",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "105.3"
+    }
+  ]
+}

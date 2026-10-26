@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, raman325 dramatically increased output with merged PRs rising by 633.3% and reviews growing significantly. However, contribution was highly bursty, with nearly all merged PRs concentrated into a single week. Additionally, median cycle time nearly doubled as larger migration and fix items were merged.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "Contribution is highly bursty, with work concentrated heavily in a single week of the series.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased substantially",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "633.3"
+    },
+    {
+      "claim": "Active weeks increased",
+      "ref": "metrics.active_weeks.value",
+      "value": "3"
+    },
+    {
+      "claim": "Median cycle time increased",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "97.0"
+    }
+  ]
+}

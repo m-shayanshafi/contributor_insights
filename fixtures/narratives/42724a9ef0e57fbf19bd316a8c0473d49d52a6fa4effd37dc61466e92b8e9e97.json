@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, the contributor's velocity slowed down significantly as merged PRs dropped by 55.0 percent while median cycle times increased by 240.9 hours. Although output decreased in volume, the median PR size more than doubled, suggesting a shift toward larger and more complex changes that required more time to merge. Consequently, the combination of larger PR sizes and slower cycle times adequately explains the drop in throughput.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "The shift toward significantly larger PR sizes naturally increased review and integration overhead, leading to longer cycle times and fewer merged contributions.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs decreased substantially compared to the previous period",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-55.0"
+    },
+    {
+      "claim": "Median cycle time increased sharply",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "240.9"
+    },
+    {
+      "claim": "Median PR size increased significantly",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "107.7"
+    }
+  ]
+}

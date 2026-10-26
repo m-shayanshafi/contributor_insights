@@ -1,0 +1,23 @@
+{
+  "narrative": "Lackas increased their output with 22 PRs merged compared to 14 previously, while also seeing a significant rise in median PR size and median cycle time. The substantial growth in code volume and slower review turnaround times point to a shift toward larger, more complex contributions that take longer to merge.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "The work shifted to much larger items rather than output dropping, leading to increased cycle times.",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased from the previous period",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "57.1"
+    },
+    {
+      "claim": "Median PR size more than doubled",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "125.6"
+    },
+    {
+      "claim": "Median cycle time increased considerably",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "316.0"
+    }
+  ]
+}

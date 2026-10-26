@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, epenet merged fewer PRs while significantly increasing review output and line volume. Merged pull requests dropped by 21.8%, but reviews given increased by 55.6% alongside larger median PR sizes, indicating a shift from direct code authorship toward code review and larger items.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "Fewer PRs while reviews rise: time moved to reviewing",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs decreased by 21.8 percent",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-21.8"
+    },
+    {
+      "claim": "Reviews given increased by 55.6 percent",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "55.6"
+    },
+    {
+      "claim": "Median PR size increased by 26.7 percent",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "26.7"
+    }
+  ]
+}

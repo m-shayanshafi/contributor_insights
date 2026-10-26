@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, zweckj increased merged PRs by 20.0% while reviews given dropped significantly by 56.7%. Median cycle time rose from 5.1 to 7.8 hours, though output remained high with 18 merged pull requests. The data indicates a shift in focus toward direct code contributions rather than code reviews.",
+  "self_comparison": "Steady",
+  "root_cause_hypothesis": "With reviews dropping significantly while merged PRs increased, the contributor shifted their time from reviewing others' code to producing their own PRs.",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased by 20.0%",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "20.0"
+    },
+    {
+      "claim": "Reviews given dropped by 56.7%",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "-56.7"
+    },
+    {
+      "claim": "Median cycle time increased to 7.8 hours",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "7.8"
+    }
+  ]
+}

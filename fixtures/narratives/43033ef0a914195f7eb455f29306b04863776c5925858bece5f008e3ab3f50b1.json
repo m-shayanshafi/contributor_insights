@@ -1,0 +1,23 @@
+{
+  "narrative": "Frenck's merged PR output dropped by 54.3 percent while reviews given increased by 92.7 percent, indicating a shift in focus from direct coding to code review. Median cycle time increased substantially to 31.4 hours alongside a drop in lines changed, suggesting that time was heavily redirected toward reviewing others' work rather than producing large personal PRs.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "Time and effort shifted from authoring PRs to reviewing others' work.",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs decreased significantly",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-54.3"
+    },
+    {
+      "claim": "Reviews given increased significantly",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "92.7"
+    },
+    {
+      "claim": "Median cycle time increased",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "1107.7"
+    }
+  ]
+}

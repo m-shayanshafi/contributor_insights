@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, farmio increased their output, merging 20 pull requests compared to 15 previously, while median cycle time dropped significantly to 6.7 hours. At the same time, the median PR size increased to 147 lines, indicating higher throughput and larger contributions merged more quickly. This acceleration is supported by consistent weekly activity across 5 active weeks.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": null,
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased from 15 to 20",
+      "ref": "metrics.prs_merged.value",
+      "value": "20"
+    },
+    {
+      "claim": "Median cycle time dropped",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-84.8"
+    },
+    {
+      "claim": "Median PR size increased",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "177.4"
+    }
+  ]
+}

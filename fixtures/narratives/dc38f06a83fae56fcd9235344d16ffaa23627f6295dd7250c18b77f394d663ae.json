@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, farmio significantly increased their output with merged PRs rising by 138.1% to 50 and lines changed surging by 488.2% to 15441. Despite this substantial growth in volume and larger PR sizes, cycle times remained steady at around 10 hours. The contributor's activity was somewhat bursty, with notable spikes in merged PRs during weeks like August 25 and October 6.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": null,
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased significantly",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "138.1"
+    },
+    {
+      "claim": "Lines changed surged considerably",
+      "ref": "metrics.lines_changed.pct_change",
+      "value": "488.2"
+    },
+    {
+      "claim": "Median cycle time remained stable",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "10.0"
+    }
+  ]
+}

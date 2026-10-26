@@ -1,0 +1,23 @@
+{
+  "narrative": "Raman325 experienced a massive surge in velocity this period, merging 99 PRs compared to 5 previously. Median cycle time dropped significantly from 39.4 hours to 6.7 hours, indicating much faster turnaround times. Activity became highly concentrated toward the end of the window, with 64 PRs merged in a single week.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "Activity concentrated in a few weeks of the series",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PR count increased dramatically to 99",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "1880.0"
+    },
+    {
+      "claim": "Median cycle time decreased",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-83.0"
+    },
+    {
+      "claim": "A large portion of PRs merged during the final week",
+      "ref": "series.12.prs_merged",
+      "value": "64"
+    }
+  ]
+}

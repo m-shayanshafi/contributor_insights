@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, lackas significantly increased their output with 47 merged PRs compared to 31 previously, representing a 51.6 percent increase. Median cycle time also improved substantially, dropping from 70.0 hours to 23.3 hours. Additionally, reviews given rose sharply from 3 to 15.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": null,
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "PRs merged increased",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "51.6"
+    },
+    {
+      "claim": "Median cycle time decreased",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-66.7"
+    },
+    {
+      "claim": "Reviews given increased",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "400.0"
+    }
+  ]
+}

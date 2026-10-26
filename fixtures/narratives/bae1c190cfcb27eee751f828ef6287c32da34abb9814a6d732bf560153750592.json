@@ -1,0 +1,23 @@
+{
+  "narrative": "Arturpragacz significantly increased their delivery velocity, merging 46 pull requests compared to 10 in the previous period, while reviews given also rose to 236. Concurrently, the median PR size dropped sharply to 60 lines and median cycle time plummeted to 9 hours, indicating a shift toward much smaller and faster changes.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "The work shifted to much smaller, more frequent pull requests, leading to a dramatic reduction in cycle times and higher throughput.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased significantly",
+      "ref": "metrics.prs_merged.value",
+      "value": "46"
+    },
+    {
+      "claim": "Median PR size decreased",
+      "ref": "metrics.median_pr_size_lines.value",
+      "value": "60"
+    },
+    {
+      "claim": "Median cycle time dropped drastically",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "9.0"
+    }
+  ]
+}

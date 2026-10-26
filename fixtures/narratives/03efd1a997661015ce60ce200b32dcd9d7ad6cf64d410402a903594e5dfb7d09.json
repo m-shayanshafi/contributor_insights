@@ -1,0 +1,28 @@
+{
+  "narrative": "During this period, chemelli74 increased merged PRs by 9.8% and significantly accelerated review output by 89.7%. Despite an increase in total lines changed, the median PR size dropped while median cycle time decreased dramatically from 12.3 hours to just 1.4 hours. Work was heavily front-loaded into the first week of the series.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": null,
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased slightly",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "9.8"
+    },
+    {
+      "claim": "Reviews given nearly doubled",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "89.7"
+    },
+    {
+      "claim": "Median cycle time dropped substantially",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-88.6"
+    },
+    {
+      "claim": "Merged PRs were heavily concentrated in the first bucket",
+      "ref": "series.0.prs_merged",
+      "value": "26"
+    }
+  ]
+}

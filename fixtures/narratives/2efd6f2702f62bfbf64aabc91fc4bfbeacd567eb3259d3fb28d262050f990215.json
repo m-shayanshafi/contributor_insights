@@ -1,0 +1,28 @@
+{
+  "narrative": "Contributor gjohansson-ST experienced a dramatic increase in velocity, with merged PRs surging by 2161.5% and lines changed rising by 1774.1%. Median cycle time also improved significantly, dropping by 44.4% to 1.0 hours. However, the contribution pattern was highly concentrated, with the vast majority of PRs merged during a few weeks in October.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "Activity concentrated in a few weeks of the series",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased drastically",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "2161.5"
+    },
+    {
+      "claim": "Lines changed increased significantly",
+      "ref": "metrics.lines_changed.pct_change",
+      "value": "1774.1"
+    },
+    {
+      "claim": "Median cycle time decreased",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-44.4"
+    },
+    {
+      "claim": "High concentration of merged PRs in specific weeks",
+      "ref": "series.1.prs_merged",
+      "value": "117"
+    }
+  ]
+}

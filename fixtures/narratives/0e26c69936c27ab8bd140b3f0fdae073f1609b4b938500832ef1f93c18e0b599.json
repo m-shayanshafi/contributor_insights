@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, joostlek merged fewer PRs and changed significantly fewer lines of code, while increasing the number of reviews given. The reduction in merged PR output accompanied a shift toward code review activities, with reviews rising while PR volume dropped.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "Time moved to reviewing rather than authoring PRs.",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs decreased by over fifty percent",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-59.8"
+    },
+    {
+      "claim": "Reviews given increased during the same period",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "21.0"
+    },
+    {
+      "claim": "Median PR size in lines also dropped substantially",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "-78.8"
+    }
+  ]
+}

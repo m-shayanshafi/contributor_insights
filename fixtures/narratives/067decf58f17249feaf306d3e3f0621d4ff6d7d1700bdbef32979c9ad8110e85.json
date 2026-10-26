@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, darkrain-nl established a high volume of output with 93 PRs merged across 10 active weeks. Their activity was heavily concentrated around late August, where 27 PRs were merged in a single week. Overall, the contributor maintained a rapid median cycle time of 1.9 hours.",
+  "self_comparison": "Steady",
+  "root_cause_hypothesis": "Activity concentrated in a few weeks of the series",
+  "confidence": 0.8,
+  "evidence_chain": [
+    {
+      "claim": "The contributor merged 93 PRs during the period",
+      "ref": "metrics.prs_merged.value",
+      "value": "93"
+    },
+    {
+      "claim": "There were 10 active weeks of contribution",
+      "ref": "metrics.active_weeks.value",
+      "value": "10"
+    },
+    {
+      "claim": "A large burst of 27 PRs occurred in the week of 2026-08-25",
+      "ref": "series.4.prs_merged",
+      "value": "27"
+    }
+  ]
+}

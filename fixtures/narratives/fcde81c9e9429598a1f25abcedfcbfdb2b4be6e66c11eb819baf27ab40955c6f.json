@@ -1,0 +1,23 @@
+{
+  "narrative": "Bre77 significantly increased output this period, merging 73 PRs compared to 30 previously, while also scaling up review activity from 1 to 14 reviews given. Despite the dramatic increase in merged pull requests and a doubling of median PR size to 72 lines, the median cycle time rose only modestly to 26.8 hours. Overall, the contributor's velocity is notably faster and more expansive.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": null,
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased significantly",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "143.3"
+    },
+    {
+      "claim": "Reviews given rose substantially",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "1300.0"
+    },
+    {
+      "claim": "Median PR size doubled",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "100.0"
+    }
+  ]
+}

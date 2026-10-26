@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, gjohansson-ST significantly increased output with 316 PRs merged compared to 56 in the previous period, representing a 464.3 percent increase. This surge in productivity was highly bursty, concentrated primarily in a few weeks of the series. Meanwhile, median cycle time dropped dramatically by 91.6 percent to just 1.1 hours.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "Activity concentrated in a few weeks of the series: bursty contribution",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "PRs merged increased by 464.3 percent",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "464.3"
+    },
+    {
+      "claim": "Median cycle time dropped by 91.6 percent",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-91.6"
+    },
+    {
+      "claim": "Spike in merged PRs during October weeks",
+      "ref": "series.9.prs_merged",
+      "value": "147"
+    }
+  ]
+}

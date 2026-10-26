@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, erwindouna significantly increased output, merging 279 PRs compared to 114 previously, while maintaining a consistent presence across active weeks. Their median cycle time dropped dramatically from 8.2 hours to 0.7 hours alongside a substantial spike in total lines changed. This burst of activity was heavily concentrated around October 2026, where a massive volume of PRs was merged in a short window.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "The contributor experienced a period of highly concentrated, bursty contribution output, significantly boosting merged PR volume and throughput.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased significantly",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "144.7"
+    },
+    {
+      "claim": "Median cycle time decreased",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-91.5"
+    },
+    {
+      "claim": "Activity was heavily concentrated in October",
+      "ref": "series.9.prs_merged",
+      "value": "155"
+    }
+  ]
+}

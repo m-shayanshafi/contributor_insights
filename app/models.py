@@ -63,3 +63,25 @@ class NarrativeLLMOutput(BaseModel):
     root_cause_hypothesis: str | None
     confidence: float = Field(ge=0, le=1)
     evidence_chain: list[EvidenceItem]
+
+
+class NarrativeMeta(Meta):
+    cached: bool
+    model: str
+
+
+class NarrativeResponse(BaseModel):
+    repo: str
+    login: str
+    period: str
+    window: WindowRange
+    narrative: str
+    self_comparison: str
+    root_cause_hypothesis: str | None
+    confidence: float = Field(description="min(llm_confidence, data_sufficiency)")
+    llm_confidence: float
+    data_sufficiency: float
+    evidence_chain: list[EvidenceItem]
+    ungrounded_evidence_dropped: int
+    metrics: ContributorMetrics
+    meta: NarrativeMeta

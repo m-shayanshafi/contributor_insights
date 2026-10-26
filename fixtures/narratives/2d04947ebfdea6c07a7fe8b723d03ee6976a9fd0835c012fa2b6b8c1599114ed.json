@@ -1,0 +1,23 @@
+{
+  "narrative": "Arturpragacz's velocity shifted toward larger, more complex tasks, evidenced by a drop in merged PRs alongside a dramatic increase in median PR size and reviews given. Although fewer PRs were completed, review activity doubled and median cycle time lengthened significantly as work focused on heavy features like Matter camera support. This indicates a shift in focus from high-volume contributions to deep feature development and code review.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "The shift toward much larger PRs and increased review responsibilities naturally drove up cycle times and reduced the total count of merged PRs.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs decreased substantially",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-69.2"
+    },
+    {
+      "claim": "Median PR size grew significantly",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "1363.6"
+    },
+    {
+      "claim": "Reviews given increased",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "113.3"
+    }
+  ]
+}

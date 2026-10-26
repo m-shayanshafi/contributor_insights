@@ -78,8 +78,8 @@ def render_user_message(data: dict) -> str:
 
 
 def input_hash(data: dict) -> str:
-    """Cache key: any change to the data changes the hash."""
-    return hashlib.sha256(_canonical(data).encode()).hexdigest()
+    """Cache key: any change to the data or to the system prompt changes the hash."""
+    return hashlib.sha256((SYSTEM_PROMPT + _canonical(data)).encode()).hexdigest()
 
 
 def _canonical(data: dict) -> str:

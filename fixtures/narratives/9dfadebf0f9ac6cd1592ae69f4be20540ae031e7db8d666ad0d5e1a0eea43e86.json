@@ -1,0 +1,23 @@
+{
+  "narrative": "joostlek drastically increased their output this period, merging 155 PRs compared to 31 previously while maintaining a fast median cycle time of 1.3 hours. However, their activity was heavily concentrated into just two peak weeks, specifically the weeks of 2026-10-10 and 2026-10-17. This indicates a highly bursty contribution pattern rather than a steady weekly output.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "The contributor experienced a bursty contribution pattern, concentrating their massive PR output into a couple of peak weeks.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased significantly to 155",
+      "ref": "metrics.prs_merged.value",
+      "value": "155"
+    },
+    {
+      "claim": "Median cycle time remained very low",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "1.3"
+    },
+    {
+      "claim": "Merged PRs spiked during the week of October 10",
+      "ref": "series.2.prs_merged",
+      "value": "106"
+    }
+  ]
+}

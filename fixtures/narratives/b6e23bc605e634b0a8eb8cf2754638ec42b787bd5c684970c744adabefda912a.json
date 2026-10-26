@@ -1,0 +1,28 @@
+{
+  "narrative": "During this period, balloobbot increased output significantly, with merged PRs rising by 155.6% to 23 and reviews given surging to 66. However, median cycle time lengthened drastically by 1,085.2% to 32.0 hours as the contributor took on much larger PRs averaging 202 lines changed. The data suggests that shifting towards substantially bigger integration items created a review and merging bottleneck, slowing down overall delivery speed despite the higher volume of work.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "The shift toward much larger PR sizes and a massive increase in reviews given created a review bottleneck, driving up cycle times.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased by 155.6%",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "155.6"
+    },
+    {
+      "claim": "Reviews given grew from 1 to 66",
+      "ref": "metrics.reviews_given.value",
+      "value": "66"
+    },
+    {
+      "claim": "Median cycle time increased to 32.0 hours",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "32.0"
+    },
+    {
+      "claim": "Median PR size rose to 202 lines changed",
+      "ref": "metrics.median_pr_size_lines.value",
+      "value": "202"
+    }
+  ]
+}

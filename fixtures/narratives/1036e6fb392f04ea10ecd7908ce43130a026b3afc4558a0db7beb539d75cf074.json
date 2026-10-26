@@ -1,0 +1,28 @@
+{
+  "narrative": "During this period, emontnemery significantly increased their velocity, with merged PRs surging by 212.2% and lines changed rising by 244.0% while median cycle times remained fast at 5.6 hours. This massive jump in output was accompanied by a bursty distribution of work where productivity peaked heavily in the second week of the series. Consequently, the contributor's overall delivery pace became much faster.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "Work was heavily concentrated in a productive burst early in the period, driving up overall PR volume without slowing down cycle times.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased significantly",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "212.2"
+    },
+    {
+      "claim": "Lines changed increased drastically",
+      "ref": "metrics.lines_changed.pct_change",
+      "value": "244.0"
+    },
+    {
+      "claim": "Median cycle time remained very low",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "5.6"
+    },
+    {
+      "claim": "Activity peaked heavily in the second week",
+      "ref": "series.1.prs_merged",
+      "value": "62"
+    }
+  ]
+}

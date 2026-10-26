@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, rrooggiieerr significantly increased output by merging 25 PRs compared to none in the previous period, while expanding active weeks from 1 to 7. The contributor's activity became notably bursty, with 10 PRs merged during the week of September 29. Overall velocity shows substantial growth in contributions.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "The contributor experienced a highly productive phase, driving a burst of activity concentrated heavily around late September.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "The number of merged PRs increased from 0 to 25.",
+      "ref": "metrics.prs_merged.value",
+      "value": "25"
+    },
+    {
+      "claim": "Active weeks increased by 600 percent.",
+      "ref": "metrics.active_weeks.pct_change",
+      "value": "600.0"
+    },
+    {
+      "claim": "A significant activity spike occurred during the week of September 29 with 10 merged PRs.",
+      "ref": "series.9.prs_merged",
+      "value": "10"
+    }
+  ]
+}

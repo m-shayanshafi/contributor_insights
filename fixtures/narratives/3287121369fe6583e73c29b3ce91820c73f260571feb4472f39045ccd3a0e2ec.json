@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, mosandlt merged slightly fewer pull requests with an increase in median PR size, while cycle times more than doubled. This combination of larger PRs and longer merge times suggests a review bottleneck affecting delivery speed. Overall, the contributor's velocity is evaluated as slower compared to the previous period.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "Longer cycle times while PR size increases points to a review bottleneck slowing down delivery.",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs decreased slightly",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-14.3"
+    },
+    {
+      "claim": "Median PR size increased",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "29.3"
+    },
+    {
+      "claim": "Median cycle time increased significantly",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "104.1"
+    }
+  ]
+}

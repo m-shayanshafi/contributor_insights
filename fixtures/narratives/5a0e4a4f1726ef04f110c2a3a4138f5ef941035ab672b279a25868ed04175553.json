@@ -1,0 +1,23 @@
+{
+  "narrative": "RaHehl's velocity increased significantly as merged pull requests rose by 125.0 percent and total lines changed surged by 259.8 percent. Despite the much larger median PR size, the median cycle time decreased by 33.9 percent, indicating faster delivery.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": null,
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged pull requests increased by 125.0 percent",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "125.0"
+    },
+    {
+      "claim": "Lines changed increased by 259.8 percent",
+      "ref": "metrics.lines_changed.pct_change",
+      "value": "259.8"
+    },
+    {
+      "claim": "Median cycle time decreased by 33.9 percent",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "-33.9"
+    }
+  ]
+}

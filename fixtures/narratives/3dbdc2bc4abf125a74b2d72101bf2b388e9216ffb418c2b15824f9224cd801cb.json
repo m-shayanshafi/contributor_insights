@@ -1,0 +1,23 @@
+{
+  "narrative": "During this period, the contributor merged fewer PRs but shifted toward much larger items, as seen in the significant increase in median PR size. While merged PRs dropped, lines changed slightly increased and cycle times improved. The data points to a deliberate pivot toward bigger contributions rather than an overall drop in output.",
+  "self_comparison": "Steady",
+  "root_cause_hypothesis": "The work shifted to bigger items rather than output dropping",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs decreased",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-27.3"
+    },
+    {
+      "claim": "Median PR size increased substantially",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "245.5"
+    },
+    {
+      "claim": "Lines changed remained stable with a slight increase",
+      "ref": "metrics.lines_changed.pct_change",
+      "value": "5.8"
+    }
+  ]
+}

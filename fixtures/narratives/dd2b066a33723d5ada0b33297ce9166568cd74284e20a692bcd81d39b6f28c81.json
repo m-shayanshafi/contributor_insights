@@ -1,0 +1,28 @@
+{
+  "narrative": "Bre77's merged pull requests decreased slightly while reviews given experienced a significant increase. Meanwhile, the median PR size and total lines changed both grew substantially, indicating a shift in focus toward larger contributions and increased code review participation. Cycle times also saw a moderate increase alongside these larger changes.",
+  "self_comparison": "Slower",
+  "root_cause_hypothesis": "The contributor shifted focus toward larger pull requests and significantly more code reviews, which naturally increased cycle times.",
+  "confidence": 0.85,
+  "evidence_chain": [
+    {
+      "claim": "PRs merged decreased slightly",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "-7.7"
+    },
+    {
+      "claim": "Reviews given increased substantially",
+      "ref": "metrics.reviews_given.pct_change",
+      "value": "250.0"
+    },
+    {
+      "claim": "Median PR size increased",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "37.8"
+    },
+    {
+      "claim": "Cycle times increased",
+      "ref": "metrics.median_cycle_time_hours.pct_change",
+      "value": "11.5"
+    }
+  ]
+}

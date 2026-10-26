@@ -1,0 +1,23 @@
+{
+  "narrative": "Shulyaka increased their merged PR output by 33.3% alongside a significant jump in median PR size from 39 lines to 366 lines. While cycle times rose slightly from 8.6 hours to 10.0 hours, the massive increase in lines changed indicates a shift toward larger, more substantial features.",
+  "self_comparison": "Faster",
+  "root_cause_hypothesis": "The work shifted to much larger items rather than output dropping, as evidenced by the dramatic increase in median PR size and total lines changed.",
+  "confidence": 0.9,
+  "evidence_chain": [
+    {
+      "claim": "Merged PRs increased by 33.3%",
+      "ref": "metrics.prs_merged.pct_change",
+      "value": "33.3"
+    },
+    {
+      "claim": "Median PR size increased by 838.5%",
+      "ref": "metrics.median_pr_size_lines.pct_change",
+      "value": "838.5"
+    },
+    {
+      "claim": "Median cycle time rose to 10.0 hours",
+      "ref": "metrics.median_cycle_time_hours.value",
+      "value": "10.0"
+    }
+  ]
+}
