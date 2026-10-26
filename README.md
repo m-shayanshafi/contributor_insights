@@ -14,6 +14,9 @@ confidence score and an evidence chain.
 `home-assistant/core` was chosen for its very high activity (thousands of merged PRs a
 month), which makes period-over-period changes meaningful.
 
+Submission notes (architecture tour, trade-offs, next steps, AI usage) are in
+[NOTES.md](NOTES.md).
+
 ## Quick start (no credentials)
 
 The repo ships with recorded data for 25 active contributors and recorded Gemini
@@ -104,6 +107,17 @@ uv run python -m scripts.record_narratives                          # re-record 
 
 Each metric has `value`, `previous_period` and `pct_change`. A `series` gives the trend:
 daily buckets for `1w`, weekly for `1m` and `3m`.
+
+**Why these metrics.** Each one answers a different question, and together they let a change
+be explained rather than just reported. `prs_merged` and `lines_changed` measure output, but on
+their own they can't tell "slowed down" from "took on bigger work", so `median_pr_size_lines`
+separates the two. `median_cycle_time_hours` shows whether merges are waiting on review, which
+matters most when PR size hasn't changed. `reviews_given` captures time spent unblocking other
+people, which never shows up in PR counts. `active_weeks` and the `series` show whether the
+work is steady or concentrated in bursts. Medians are used instead of means because a single
+huge refactor would otherwise dominate. These are also the signals the narrative uses to form
+a root-cause hypothesis: for example, fewer PRs with much larger sizes points to bigger work
+items, and fewer PRs with more reviews points to time moving into reviewing.
 
 ### Narrative response (abridged)
 
