@@ -20,6 +20,7 @@ No credentials needed; it runs on recorded data:
 
 ```bash
 docker compose up --build
+# then, in another terminal:
 curl -s "localhost:8000/api/contributors/zweckj/narrative?period=1m"
 ```
 
