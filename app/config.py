@@ -40,7 +40,6 @@ class Settings(BaseSettings):
     history_days: int = 180
     max_concurrent_backfills: int = 2
     max_new_contributors_per_hour: int = 20
-    max_peers: int = 5
     rate_limit: str = "30/minute"
 
     @field_validator("github_token", "gemini_api_key", mode="before")

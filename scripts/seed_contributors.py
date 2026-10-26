@@ -1,4 +1,4 @@
-"""Backfill contributors into the live database so they can be used as peers.
+"""Backfill contributors into the live database so later requests are served without waiting.
 
 Usage: uv run python -m scripts.seed_contributors [--top 10] [login ...]
 

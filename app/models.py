@@ -1,6 +1,7 @@
 """API response models."""
 
 from datetime import date, datetime
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -46,3 +47,19 @@ class ContributorResponse(BaseModel):
     window: WindowRange
     metrics: ContributorMetrics
     meta: Meta
+
+
+# Narrative: the schema the LLM must fill in.
+
+class EvidenceItem(BaseModel):
+    claim: str
+    ref: str = Field(description="Dotted path into the input JSON, or pr:#<number>")
+    value: str = Field(description="The cited value, copied exactly from the input")
+
+
+class NarrativeLLMOutput(BaseModel):
+    narrative: str
+    self_comparison: Literal["Faster", "Slower", "Steady"]
+    root_cause_hypothesis: str | None
+    confidence: float = Field(ge=0, le=1)
+    evidence_chain: list[EvidenceItem]
