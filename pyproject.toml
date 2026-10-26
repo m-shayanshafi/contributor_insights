@@ -1,7 +1,7 @@
 [project]
 name = "contributor-insights"
 version = "0.1.0"
-description = "GitHub contributor velocity insights with Claude-generated narratives"
+description = "GitHub contributor velocity insights with Gemini-generated narratives"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.115",
@@ -16,6 +16,7 @@ dev = [
     "httpx2>=2.16.0",
     "pytest>=8.3",
     "pytest-asyncio>=0.24",
+    "respx>=0.23.1",
 ]
 
 [tool.uv]
