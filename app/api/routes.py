@@ -38,9 +38,6 @@ async def get_contributor(request: Request, login: Login,
                           period: Annotated[Period, Query()] = Period.MONTH):
     services: Services = request.app.state.services
     settings = request.app.state.settings
-    if services.sync is None:
-        raise HTTPException(503, "Data source unavailable")
-
     try:
         result = await services.sync.ensure_fresh(login)
     except NotFound:

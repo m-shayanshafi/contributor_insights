@@ -35,6 +35,7 @@ class Settings(BaseSettings):
 
     gemini_model: str = "gemini-3.5-flash-lite"
     db_path: Path = Path("data/insights.db")
+    fixtures_dir: Path = Path("fixtures")
     sync_ttl_seconds: int = 3600
     history_days: int = 180
     max_concurrent_backfills: int = 2
