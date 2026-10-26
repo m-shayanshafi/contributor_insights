@@ -4,19 +4,26 @@ Run with: uv run uvicorn app.main:create_app --factory
 """
 
 import logging
-from collections.abc import AsyncIterator
-from contextlib import asynccontextmanager
+from collections.abc import AsyncIterator, Callable
+from contextlib import AbstractAsyncContextManager, asynccontextmanager
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
+from app.api.ratelimit import ClientRateLimiter
+from app.api.routes import router
 from app.config import Settings
 from app.logging_setup import configure_logging
+from app.services import Services, open_services
 
 logger = logging.getLogger(__name__)
 
 
-def create_app(settings: Settings | None = None) -> FastAPI:
+ServicesFactory = Callable[[Settings], AbstractAsyncContextManager[Services]]
+
+
+def create_app(settings: Settings | None = None,
+               services_factory: ServicesFactory = open_services) -> FastAPI:
     settings = settings or Settings()
 
     @asynccontextmanager
@@ -27,10 +34,14 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "Starting: repo=%s data_source=%s llm_mode=%s",
             settings.target_repo, settings.data_source, settings.llm_mode,
         )
-        yield
+        async with services_factory(settings) as services:
+            app.state.services = services
+            yield
 
     app = FastAPI(title="Contributor Insights", lifespan=lifespan)
     app.state.settings = settings
+    # Enforced on every /api route by the router's dependency; /healthz is not limited.
+    app.state.rate_limiter = ClientRateLimiter(settings.rate_limit)
 
     @app.exception_handler(Exception)
     async def unhandled_error(request: Request, exc: Exception) -> JSONResponse:
@@ -47,4 +58,5 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "llm_mode": settings.llm_mode,
         }
 
+    app.include_router(router)
     return app

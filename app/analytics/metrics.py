@@ -24,7 +24,8 @@ def window_stats(prs: list[PullRequest], reviews: list[Review], window: Window) 
         "prs_merged": len(prs),
         "lines_changed": sum(sizes),
         # Medians are None without PRs: 0 would wrongly suggest empty or instant PRs.
-        "median_pr_size_lines": median(sizes) if sizes else None,
+        # Rounded half up to whole lines, so even-sized samples don't return x.5 floats.
+        "median_pr_size_lines": int(median(sizes) + 0.5) if sizes else None,
         "median_cycle_time_hours": round(median(cycle_hours), 1) if cycle_hours else None,
         "reviews_given": len(reviews),
         "active_weeks": len(active),

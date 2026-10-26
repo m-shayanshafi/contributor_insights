@@ -69,6 +69,15 @@ def test_window_stats_empty_window():
     }
 
 
+def test_median_pr_size_rounds_to_whole_lines():
+    prs = [pr(1, merged_at=DAY, additions=35), pr(2, merged_at=DAY, additions=41)]
+    # Sizes 35 and 41: median 38.0 becomes 38; 35 and 42 give 38.5, rounded half up to 39.
+    assert window_stats(prs, [], Window(0, 7 * DAY))["median_pr_size_lines"] == 38
+    prs[1] = pr(2, merged_at=DAY, additions=42)
+    size = window_stats(prs, [], Window(0, 7 * DAY))["median_pr_size_lines"]
+    assert size == 39 and isinstance(size, int)
+
+
 def test_reviews_only_still_count_as_active():
     stats = window_stats([], [review("r1", 0), review("r2", 8 * DAY)], Window(0, 30 * DAY))
     assert stats["active_weeks"] == 2
