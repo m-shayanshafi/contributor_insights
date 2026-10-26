@@ -14,74 +14,18 @@ confidence score and an evidence chain.
 `home-assistant/core` was chosen for its very high activity (thousands of merged PRs a
 month), which makes period-over-period changes meaningful.
 
-Submission notes (architecture tour, trade-offs, next steps, AI usage) are in
-[NOTES.md](NOTES.md).
+## Quick start
 
-## Quick start (no credentials)
-
-The repo ships with recorded data for 25 active contributors and recorded Gemini
-narratives, so it runs without any keys:
+No credentials needed; it runs on recorded data:
 
 ```bash
 docker compose up --build
-```
-
-Then, in another terminal:
-
-```bash
-curl -s localhost:8000/healthz
-curl -s "localhost:8000/api/contributors/joostlek?period=3m"
 curl -s "localhost:8000/api/contributors/zweckj/narrative?period=1m"
 ```
 
-Interactive API docs are at http://localhost:8000/docs.
-
-In this mode the clock is frozen at the time the data was recorded, so windows always
-line up with the data. Recorded contributors: `epenet, frenck, gjohansson-ST, erwindouna,
-emontnemery, joostlek, balloob, tr4nt0r, Bre77, raman325, RaHehl, bieniu, zweckj,
-chemelli74, darkrain-nl, mosandlt, jbouwh, abmantis, arturpragacz, Shulyaka, balloobbot,
-rrooggiieerr, farmio, lackas, piitaya`. Any other login returns 404.
-
-## Live mode (your own keys)
-
-Live mode fetches real, current data from GitHub for any contributor to
-`home-assistant/core` and has Gemini write a fresh narrative for each request (cached
-until the data changes). It needs two free credentials of your own:
-
-1. **GitHub token:** create a [fine-grained personal access token](https://github.com/settings/personal-access-tokens/new)
-   with *Repository access: Public repositories (read-only)*, no permissions and a short
-   expiry.
-2. **Gemini key:** create a free API key in [Google AI Studio](https://aistudio.google.com)
-   (no billing needed; limits are on its [rate-limit page](https://aistudio.google.com/rate-limit)).
-3. Configure:
-
-   ```bash
-   cp .env.example .env && chmod 600 .env
-   # then set in .env:
-   # DATA_SOURCE=github
-   # LLM_MODE=live
-   # GITHUB_TOKEN=github_pat_...
-   # GEMINI_API_KEY=...
-   ```
-
-4. Run `docker compose up --build` and call any login:
-
-   ```bash
-   curl -i "localhost:8000/api/contributors/emontnemery?period=1m"   # 202 while history loads
-   curl -s "localhost:8000/api/contributors/emontnemery?period=1m"   # 200 once ready
-   ```
-
-The first request for a contributor starts a background load of their last 180 days and
-returns 202. After that, data is refreshed at most once an hour with an incremental sync of
-everything updated since the last one. The app refuses to start if a mode's key is missing.
-
-Helper scripts (live mode):
-
-```bash
-uv run python -m scripts.seed_contributors [--top 10] [login ...]   # pre-load contributors
-uv run python -m scripts.record_fixtures [--top 25] [login ...]     # re-record fixtures
-uv run python -m scripts.record_narratives                          # re-record narratives
-```
+[NOTES.md](NOTES.md) has the full setup (prerequisites, live mode with your own keys,
+tests), the architecture tour, trade-offs, next steps and how I used AI. This README is the
+reference for the API, metrics, security and configuration.
 
 ## API
 
@@ -152,21 +96,16 @@ items, and fewer PRs with more reviews points to time moving into reviewing.
 When the data doesn't support a clear cause, `root_cause_hypothesis` is `null` rather than
 a guess (for example `frenck?period=1m`, where output simply rose across the board).
 
-How the narrative is kept honest:
+Field details (the pipeline is described in the [architecture tour](NOTES.md#2-architecture-tour)):
 
-- **Input:** only the metrics, the series and the contributor's five largest PRs (number,
-  title, size, cycle time). The model compares the contributor only with their own history.
-- **Structured output:** Gemini must return JSON matching a fixed schema, which is
-  validated again on arrival.
-- **Grounding:** every evidence `ref` must point at a real value in the input (a JSON path
-  such as `metrics.prs_merged.pct_change`, or `pr:#12345`) and its `value` must match.
-  Anything else is dropped and counted in `ungrounded_evidence_dropped`. If no evidence
-  survives, the hypothesis is set to `null`.
-- **Confidence:** `confidence = min(llm_confidence, data_sufficiency)`, where
-  `data_sufficiency = min(1, PRs and reviews across both windows / 20)`, so thin data can't
-  produce a confident story.
-- **Caching:** narratives are cached by a hash of the prompt and input, so unchanged data
-  never calls the LLM twice.
+- `evidence_chain[].ref` is a JSON path into the model input, such as
+  `metrics.prs_merged.pct_change` or `series.2.prs_merged`, or `pr:#12345` for one of the five
+  largest PRs. Items whose ref or value doesn't match the input are removed and counted in
+  `ungrounded_evidence_dropped`.
+- `confidence = min(llm_confidence, data_sufficiency)`, where
+  `data_sufficiency = min(1, PRs and reviews across both windows / 20)`.
+- `meta.cached` is `true` when the narrative came from the cache; `meta.model` names the model
+  (`recorded` in fixture mode).
 
 ### Status codes
 
@@ -178,15 +117,6 @@ How the narrative is kept honest:
 | Per-client rate limit or new-contributor hourly cap | 429 |
 | GitHub down and nothing cached | 503 (with cached data: 200 and `meta.stale: true`) |
 | LLM failed, refused or hit its quota | 502, with the metrics still included |
-
-## Tests
-
-```bash
-uv run pytest
-```
-
-The suite needs no credentials or network: GitHub is mocked with `respx`, Gemini with a
-stub, and an end-to-end test runs both endpoints against the committed fixtures.
 
 ## Security
 
